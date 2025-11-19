@@ -5,7 +5,13 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { CheckCircle2, Sparkles, Target, TrendingUp, Users } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious
+} from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 
 const Index = () => {
@@ -15,33 +21,56 @@ const Index = () => {
     setIsVisible(true);
   }, []);
 
+  // Tus imágenes reales del folder public
+  const logos = [
+    "/logo (1).png",
+    "/logo (2).png",
+    "/logo (3).png",
+    "/logo (4).png",
+    "/logo (5).png",
+    "/logo (6).png",
+    "/logo (7).png",
+    "/logo (8).png",
+    "/logo (9).png",
+    "/logo (10).png",
+    "/logo (11).png",
+    "/logo (12).png",
+    "/logo (13).png",
+    "/logo (14).png",
+    "/logo (15).png",
+    "/logo (16).png",
+    "/logo (17).png",
+  ];
+
   const greenFlags = [
     {
       icon: <Target className="w-8 h-8 text-secondary" />,
       title: "Organización Total",
-      description: "Nos organizamos de tal manera que solo te preocupes por atender al cliente"
+      description:
+        "Nos organizamos de tal manera que solo te preocupes por atender al cliente",
     },
     {
       icon: <Sparkles className="w-8 h-8 text-secondary" />,
       title: "Asesoría Integral",
-      description: "Nos metemos hasta la cocina de tu negocio para asesorarte y darte las recomendaciones que necesitas"
+      description:
+        "Nos metemos hasta la cocina de tu negocio para asesorarte y darte las recomendaciones que necesitas",
     },
     {
       icon: <Users className="w-8 h-8 text-secondary" />,
       title: "Análisis Profundo",
-      description: "Analizamos a tu cliente para determinar lo que le funciona"
+      description: "Analizamos a tu cliente para determinar lo que le funciona",
     },
     {
       icon: <TrendingUp className="w-8 h-8 text-secondary" />,
       title: "Pasión por el Éxito",
-      description: "Amamos lo que hacemos y se nota!!"
-    }
+      description: "Amamos lo que hacemos y se nota!!",
+    },
   ];
 
   const testimonials = [
     {
       company: "XGOAT",
-      text: "La verdad hemos estado trabajando bien a gusto todos y si nos ha gustado mucho el crecimiento de la publicidad contigo, entonces lo que tú digas que está mejor vamos a darle por ahí. Yo la verdad ahorita tengo toda mi confianza ahí contigo",
+      text: "La verdad hemos estado trabajando bien a gusto todos y si nos ha gustado mucho el crecimiento de la publicidad contigo...",
     },
     {
       company: "HOTELES SANTA CRUZ",
@@ -49,12 +78,12 @@ const Index = () => {
     },
     {
       company: "THE HAPPY DOCTOR",
-      text: "Yo ya confío plenamente en ti, ya vi como trabajas, ya vi como te gusta manejarte, ya vi que no haces todo al ahí se va, entonces dínos como aterrizarlo en una juntita",
+      text: "Yo ya confío plenamente en ti...",
     },
     {
       company: "CLÍNICA CONTORNO",
-      text: "Solo quería compartirte que este mes ha sido el mejor mes en cuanto a ventas en cuanto abrimos la clínica",
-    }
+      text: "Solo quería compartirte que este mes ha sido el mejor mes en cuanto a ventas...",
+    },
   ];
 
   const services = [
@@ -64,22 +93,55 @@ const Index = () => {
     { name: "Fotografía", path: "/servicios/fotografia" },
     { name: "Videos UGC", path: "/servicios/contenido-ugc" },
     { name: "Asesorías 1:1", path: "/cursos" },
-    { name: "Sitios Web", path: "/servicios/sitios-web" }
+    { name: "Sitios Web", path: "/servicios/sitios-web" },
   ];
 
   return (
-    <div className="min-h-screen">
-      <Navigation />
+    <div className="min-h-screen bg-background">
+      {/* Navegación con posición absoluta para que flote sobre el hero */}
+      <div className="relative z-20">
+        <Navigation />
+      </div>
 
-      {/* Hero Section */}
-      <section className="section-container pt-32 pb-24" style={{ background: 'linear-gradient(135deg, hsl(184 42% 47%), hsl(183 47% 57%))' }}>
-        <div className={`container mx-auto text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-gothic font-black mb-8 text-white drop-shadow-lg animate-scale-in leading-tight">
-            PONTE CLEVER!!
-          </h1>
+      {/* HERO FULLSCREEN */}
+      <section
+        className="relative min-h-screen flex items-center justify-center text-center overflow-hidden"
+      >
+        {/* Imagen de fondo */}
+        <div 
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: `url(${encodeURI("/hero-background.jpg")})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            backgroundColor: '#121212', // Color de fondo por si la imagen no carga
+          }}
+        >
+          {/* Overlay oscuro para mejorar la legibilidad del texto */}
+          <div className="absolute inset-0 bg-black/50"></div>
+        </div>
+        
+        {/* Contenido del Hero */}
+        <div
+          className={`container mx-auto px-4 transition-all duration-1000 relative z-10 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
+        >
+          {/* Imagen "PONTE CLEVER!!" */}
+          <div className="mb-8 animate-scale-in flex justify-center">
+            <img 
+              src={encodeURI("/PONTE CLEVER.png")} 
+              alt="PONTE CLEVER!!" 
+              className="max-w-full h-auto drop-shadow-lg"
+              style={{ maxHeight: "250px" }} // Un poco más grande para el hero
+            />
+          </div>
+
           <p className="text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto mb-12 animate-fade-in leading-relaxed">
-            Con 7 años en el mercado, Clever Media ha ayudado a muchos emprendedores y empresas a aumentar sus ventas y exposición a nivel local, estatal y nacional
+            Con 7 años en el mercado, Clever Media ha ayudado a muchos emprendedores...
           </p>
+
           <div className="flex flex-wrap justify-center gap-4 mb-12 animate-slide-in-left">
             {services.map((service, index) => (
               <Link
@@ -92,20 +154,25 @@ const Index = () => {
               </Link>
             ))}
           </div>
+
           <Link to="/servicios" className="inline-block animate-slide-in-right">
-            <Button size="lg" className="bg-primary hover:bg-primary-variant text-white text-lg px-10 py-7 shadow-xl hover:shadow-2xl transition-all hover-lift">
+            <Button
+              size="lg"
+              className="bg-primary hover:bg-primary-variant text-white text-lg px-10 py-7 shadow-xl hover:shadow-2xl transition-all hover-lift"
+            >
               CONOCE NUESTROS SERVICIOS
             </Button>
           </Link>
         </div>
       </section>
 
-      {/* Green Flags Section */}
+      {/* GREEN FLAGS */}
       <section className="section-container bg-background overflow-hidden">
         <div className="container mx-auto">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-gothic font-bold text-center mb-20 animate-fade-in-up leading-tight">
             ¿POR QUÉ SOMOS UNA <span className="text-secondary">GREEN FLAG?</span>
           </h2>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {greenFlags.map((flag, index) => (
               <Card
@@ -113,21 +180,33 @@ const Index = () => {
                 className="p-8 hover-lift hover-glow border-2 hover:border-secondary transition-all animate-scale-in group"
                 style={{ animationDelay: `${index * 0.15}s` }}
               >
-                <div className="mb-6 transform group-hover:scale-110 transition-transform duration-300">{flag.icon}</div>
-                <h3 className="font-gothic font-bold text-xl mb-4 leading-snug">{flag.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{flag.description}</p>
+                <div className="mb-6 transform group-hover:scale-110 transition-transform duration-300">
+                  {flag.icon}
+                </div>
+                <h3 className="font-gothic font-bold text-xl mb-4 leading-snug">
+                  {flag.title}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {flag.description}
+                </p>
               </Card>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="section-container" style={{ background: 'linear-gradient(135deg, hsl(183 47% 57%), hsl(184 42% 47%))' }}>
+      {/* TESTIMONIALS */}
+      <section
+        className="section-container"
+        style={{
+          background: "linear-gradient(135deg, hsl(183 47% 57%), hsl(184 42% 47%))",
+        }}
+      >
         <div className="container mx-auto">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-gothic font-bold text-center mb-20 text-white animate-fade-in-up leading-tight">
             LO QUE DICEN NUESTROS <span className="text-white drop-shadow-lg">CLIENTES</span>
           </h2>
+
           <div className="grid md:grid-cols-2 gap-8">
             {testimonials.map((testimonial, index) => (
               <Card
@@ -138,8 +217,12 @@ const Index = () => {
                 <div className="flex items-start gap-4">
                   <CheckCircle2 className="w-7 h-7 text-primary flex-shrink-0 mt-1 group-hover:scale-110 transition-transform duration-300" />
                   <div>
-                    <h3 className="font-gothic font-bold text-xl mb-3 text-accent">{testimonial.company}</h3>
-                    <p className="text-muted-foreground italic leading-relaxed text-base">"{testimonial.text}"</p>
+                    <h3 className="font-gothic font-bold text-xl mb-3 text-accent">
+                      {testimonial.company}
+                    </h3>
+                    <p className="text-muted-foreground italic leading-relaxed text-base">
+                      "{testimonial.text}"
+                    </p>
                   </div>
                 </div>
               </Card>
@@ -148,43 +231,39 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Clients Section */}
-      <section className="section-container bg-background overflow-hidden">
-        <div className="container mx-auto">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-gothic font-bold mb-12 text-center animate-fade-in-up leading-tight">
-            NUESTROS <span className="gradient-text">CLIENTES</span>
+      {/* LOGOS SECTION */}
+      <section className="w-full py-16 bg-[#121212]">
+        <div className="container mx-auto px-4">
+          <h2 className="text-center text-white text-3xl font-semibold mb-10">
+            Nuestros Clientes
           </h2>
-          <p className="text-muted-foreground mb-16 text-center text-lg animate-fade-in">
-            Trabajamos con más de 17 marcas que confían en nosotros
-          </p>
-          
-          <Carousel
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            plugins={[
-              Autoplay({
-                delay: 3000,
-              }),
-            ]}
-            className="w-full max-w-6xl mx-auto"
-          >
+
+          <Carousel opts={{ align: "start" }} className="w-full">
             <CarouselContent className="-ml-2 md:-ml-4">
-              {[...Array(17)].map((_, index) => (
-                <CarouselItem key={index} className="pl-2 md:pl-4 basis-1/2 md:basis-1/4 lg:basis-1/6">
+
+              {logos.map((src, index) => (
+                <CarouselItem
+                  key={index}
+                  className="pl-2 md:pl-4 basis-1/2 md:basis-1/4 lg:basis-1/6"
+                >
                   <div className="p-2">
-                    <Card className="hover-lift hover-glow transition-all animate-scale-in border-2">
-                      <div className="aspect-square flex items-center justify-center p-6 bg-card">
-                        <span className="text-xs text-center text-muted-foreground font-semibold">
-                          Logo {index + 1}
-                        </span>
+                    <Card className="transition-all border border-white/10 bg-[#1d1d1d] rounded-xl">
+                      <div className="aspect-square flex items-center justify-center p-6">
+                        <div className="w-full h-full flex items-center justify-center">
+                          <img
+                            src={src}
+                            alt={`Logo ${index + 1}`}
+                            className="max-w-[75%] max-h-[75%] object-contain"
+                          />
+                        </div>
                       </div>
                     </Card>
                   </div>
                 </CarouselItem>
               ))}
+
             </CarouselContent>
+
             <CarouselPrevious className="hidden md:flex -left-12 bg-primary text-white hover:bg-primary-variant border-0" />
             <CarouselNext className="hidden md:flex -right-12 bg-primary text-white hover:bg-primary-variant border-0" />
           </Carousel>

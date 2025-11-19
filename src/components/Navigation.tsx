@@ -17,11 +17,14 @@ export const Navigation = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
+          
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-gothic font-bold gradient-text">
-              CLEVER MEDIA
-            </span>
+          <Link to="/" className="flex items-center">
+            <img
+              src="/Logo W.png" // Cambia esto a "logo (1).png" si se llama así
+              alt="Clever Media"
+              className="h-14 w-auto object-contain" // MÁS GRANDE
+            />
           </Link>
 
           {/* Desktop Navigation */}
