@@ -122,7 +122,7 @@ const Courses = () => {
       {/* Hero */}
       <section className="section-container pt-32 bg-card">
         <div className="container mx-auto text-center">
-          <h1 className="text-5xl md:text-7xl font-gothic font-black mb-6 gradient-text animate-fade-in-up py-[45px]">
+          <h1 className="md:text-7xl font-gothic font-black mb-6 gradient-text animate-fade-in-up py-[45px] text-4xl">
             ASESORÍAS Y CURSOS
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8 animate-fade-in">
