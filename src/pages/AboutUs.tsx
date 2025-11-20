@@ -29,25 +29,41 @@ const AboutUs = () => {
 
           {/* TARJETA DE PRESENTACIÓN - CARO */}
           <Card className="p-8 md:p-12 mb-12 animate-fade-in hover-lift">
-            <div className="mb-6">
-              <h2 className="text-3xl font-gothic font-bold mb-4 text-primary">
-                Hola!! Soy Caro Mejia
-              </h2>
-              <p className="text-xl text-muted-foreground mb-4">
-                Mercadóloga fundadora de Clever Media Marketing
-              </p>
+            <div className="grid md:grid-cols-[300px_1fr] gap-8 items-start">
+              {/* IMAGEN */}
+              <div className="w-full">
+                <div className="aspect-square rounded-lg overflow-hidden">
+                  <img
+                    src="/IMG_7375.jpg"
+                    alt="Caro Mejia"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+
+              {/* CONTENIDO */}
+              <div>
+                <div className="mb-6">
+                  <h2 className="text-3xl font-gothic font-bold mb-4 text-primary">
+                    Hola!! Soy Caro Mejia
+                  </h2>
+                  <p className="text-xl text-muted-foreground mb-4">
+                    Mercadóloga fundadora de Clever Media Marketing
+                  </p>
+                </div>
+                <p className="text-lg leading-relaxed text-foreground/90 mb-6">
+                  Somos una agencia creativa y organizada enfocada en facilitarte la vida para que tu 
+                  preocupación sea solo atender a tu cliente y vender. Mi intención siempre será y ha 
+                  sido facilitarte el trabajo y hacer un equipo contigo.
+                </p>
+                <p className="text-lg leading-relaxed text-foreground/90">
+                  Egresada en 2015 por el Tecnológico de Monterrey de la carrera de mercadotecnia y 
+                  comunicación, laboré 3 años en el mundo corporativo en diversas empresas del medio: 
+                  agencias, relaciones públicas, ventas, revistas y en empresas como Brasa Desarrollos 
+                  o Cementos de Chihuahua.
+                </p>
+              </div>
             </div>
-            <p className="text-lg leading-relaxed text-foreground/90 mb-6">
-              Somos una agencia creativa y organizada enfocada en facilitarte la vida para que tu 
-              preocupación sea solo atender a tu cliente y vender. Mi intención siempre será y ha 
-              sido facilitarte el trabajo y hacer un equipo contigo.
-            </p>
-            <p className="text-lg leading-relaxed text-foreground/90">
-              Egresada en 2015 por el Tecnológico de Monterrey de la carrera de mercadotecnia y 
-              comunicación, laboré 3 años en el mundo corporativo en diversas empresas del medio: 
-              agencias, relaciones públicas, ventas, revistas y en empresas como Brasa Desarrollos 
-              o Cementos de Chihuahua.
-            </p>
           </Card>
 
           {/* GRID DE TARJETAS */}
