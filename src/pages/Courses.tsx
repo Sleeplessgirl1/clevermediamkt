@@ -7,12 +7,10 @@ import { Badge } from "@/components/ui/badge";
 import { useCartStore, ShopifyProduct } from "@/stores/cartStore";
 import { ShoppingCart, Loader2 } from "lucide-react";
 import { toast } from "sonner";
-
 const SHOPIFY_STORE_PERMANENT_DOMAIN = 'lovable-project-fpta0.myshopify.com';
 const SHOPIFY_API_VERSION = '2025-07';
 const SHOPIFY_STOREFRONT_URL = `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}/api/${SHOPIFY_API_VERSION}/graphql.json`;
 const SHOPIFY_STOREFRONT_TOKEN = 'dd54f6c04bd22e7ddd0b5db9b2aaa0a3';
-
 const STOREFRONT_QUERY = `
   query GetProducts($first: Int!) {
     products(first: $first) {
@@ -62,7 +60,6 @@ const STOREFRONT_QUERY = `
     }
   }
 `;
-
 async function storefrontApiRequest(query: string, variables: any = {}) {
   const response = await fetch(SHOPIFY_STOREFRONT_URL, {
     method: 'POST',
@@ -70,31 +67,30 @@ async function storefrontApiRequest(query: string, variables: any = {}) {
       'Content-Type': 'application/json',
       'X-Shopify-Storefront-Access-Token': SHOPIFY_STOREFRONT_TOKEN
     },
-    body: JSON.stringify({ query, variables }),
+    body: JSON.stringify({
+      query,
+      variables
+    })
   });
-
   if (!response.ok) {
     throw new Error(`HTTP error! status: ${response.status}`);
   }
-
   const data = await response.json();
-  
   if (data.errors) {
     throw new Error(`Error calling Shopify: ${data.errors.map((e: any) => e.message).join(', ')}`);
   }
-
   return data;
 }
-
 const Courses = () => {
   const [products, setProducts] = useState<ShopifyProduct[]>([]);
   const [loading, setLoading] = useState(true);
   const addItem = useCartStore(state => state.addItem);
-
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const data = await storefrontApiRequest(STOREFRONT_QUERY, { first: 10 });
+        const data = await storefrontApiRequest(STOREFRONT_QUERY, {
+          first: 10
+        });
         setProducts(data.data.products.edges);
       } catch (error) {
         console.error('Error fetching products:', error);
@@ -103,13 +99,10 @@ const Courses = () => {
         setLoading(false);
       }
     };
-
     fetchProducts();
   }, []);
-
   const handleAddToCart = (product: ShopifyProduct) => {
     const variant = product.node.variants.edges[0].node;
-    
     addItem({
       product,
       variantId: variant.id,
@@ -118,21 +111,18 @@ const Courses = () => {
       quantity: 1,
       selectedOptions: variant.selectedOptions
     });
-
     toast.success("Agregado al carrito", {
       description: product.node.title,
-      position: "top-center",
+      position: "top-center"
     });
   };
-
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       <Navigation />
 
       {/* Hero */}
       <section className="section-container pt-32 bg-card">
         <div className="container mx-auto text-center">
-          <h1 className="text-5xl md:text-7xl font-gothic font-black mb-6 gradient-text animate-fade-in-up">
+          <h1 className="text-5xl md:text-7xl font-gothic font-black mb-6 gradient-text animate-fade-in-up py-[45px]">
             ASESORÍAS Y CURSOS
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8 animate-fade-in">
@@ -177,39 +167,24 @@ const Courses = () => {
             Productos Disponibles
           </h2>
 
-          {loading ? (
-            <div className="flex justify-center items-center py-20">
+          {loading ? <div className="flex justify-center items-center py-20">
               <Loader2 className="w-12 h-12 animate-spin text-primary" />
-            </div>
-          ) : products.length === 0 ? (
-            <Card className="p-12 text-center max-w-2xl mx-auto">
+            </div> : products.length === 0 ? <Card className="p-12 text-center max-w-2xl mx-auto">
               <ShoppingCart className="w-16 h-16 mx-auto mb-4 text-muted-foreground" />
               <h3 className="font-gothic font-bold text-2xl mb-2">No hay productos disponibles aún</h3>
               <p className="text-muted-foreground">
                 Pronto agregaremos nuestras asesorías y cursos. ¡Mantente al tanto!
               </p>
-            </Card>
-          ) : (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            </Card> : <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {products.map((product, index) => {
-                const variant = product.node.variants.edges[0]?.node;
-                const image = product.node.images.edges[0]?.node;
-
-                return (
-                  <Card
-                    key={product.node.id}
-                    className="overflow-hidden hover-lift animate-fade-in"
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                  >
-                    {image && (
-                      <div className="aspect-video overflow-hidden">
-                        <img
-                          src={image.url}
-                          alt={image.altText || product.node.title}
-                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                        />
-                      </div>
-                    )}
+            const variant = product.node.variants.edges[0]?.node;
+            const image = product.node.images.edges[0]?.node;
+            return <Card key={product.node.id} className="overflow-hidden hover-lift animate-fade-in" style={{
+              animationDelay: `${index * 0.1}s`
+            }}>
+                    {image && <div className="aspect-video overflow-hidden">
+                        <img src={image.url} alt={image.altText || product.node.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                      </div>}
                     <div className="p-6">
                       <h3 className="font-gothic font-bold text-xl mb-2">{product.node.title}</h3>
                       <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
@@ -219,27 +194,19 @@ const Courses = () => {
                         <p className="font-bold text-2xl text-primary">
                           {variant.price.currencyCode} ${parseFloat(variant.price.amount).toFixed(2)}
                         </p>
-                        <Button
-                          onClick={() => handleAddToCart(product)}
-                          disabled={!variant.availableForSale}
-                          className="bg-primary hover:bg-primary-variant"
-                        >
+                        <Button onClick={() => handleAddToCart(product)} disabled={!variant.availableForSale} className="bg-primary hover:bg-primary-variant">
                           <ShoppingCart className="w-4 h-4 mr-2" />
                           Agregar
                         </Button>
                       </div>
                     </div>
-                  </Card>
-                );
-              })}
-            </div>
-          )}
+                  </Card>;
+          })}
+            </div>}
         </div>
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Courses;
