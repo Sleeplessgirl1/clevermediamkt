@@ -5,6 +5,14 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { CheckCircle2, Sparkles, Target, TrendingUp, Users } from "lucide-react";
 import { Link } from "react-router-dom";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -223,51 +231,46 @@ const Index = () => {
         </div>
       </section>
 
-      {/* LOGOS SECTION - MARQUESINA CONTINUA */}
-      <section className="w-full py-16 bg-gradient-to-b from-background to-card overflow-hidden">
-        <div className="container mx-auto px-4 mb-8">
-          <h2 className="text-center text-foreground text-3xl md:text-4xl font-gothic font-bold">
+      {/* LOGOS SECTION */}
+      <section className="w-full py-16 bg-[#121212]">
+        <div className="container mx-auto px-4">
+          <h2 className="text-center text-white text-3xl font-semibold mb-10">
             Nuestros Clientes
           </h2>
-        </div>
 
-        <div className="relative">
-          {/* Gradientes laterales para efecto fade */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-card to-transparent z-10"></div>
-          
-          <div className="flex animate-marquee hover:pause">
-            {/* Primera copia de logos */}
-            {logos.map((src, index) => (
-              <div
-                key={`logo-1-${index}`}
-                className="flex-shrink-0 w-48 h-48 mx-4 flex items-center justify-center"
-              >
-                <div className="w-full h-full bg-card/50 backdrop-blur-sm rounded-2xl p-8 border border-border/50 hover:border-primary/50 hover:bg-card transition-all hover:scale-105 flex items-center justify-center">
-                  <img
-                    src={src}
-                    alt={`Logo ${index + 1}`}
-                    className="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
-                  />
-                </div>
-              </div>
-            ))}
-            {/* Segunda copia para loop infinito */}
-            {logos.map((src, index) => (
-              <div
-                key={`logo-2-${index}`}
-                className="flex-shrink-0 w-48 h-48 mx-4 flex items-center justify-center"
-              >
-                <div className="w-full h-full bg-card/50 backdrop-blur-sm rounded-2xl p-8 border border-border/50 hover:border-primary/50 hover:bg-card transition-all hover:scale-105 flex items-center justify-center">
-                  <img
-                    src={src}
-                    alt={`Logo ${index + 1}`}
-                    className="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
+          <Carousel 
+            opts={{ align: "start", loop: true }} 
+            plugins={[Autoplay({ delay: 2000 })]}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-2 md:-ml-4">
+
+              {logos.map((src, index) => (
+                <CarouselItem
+                  key={index}
+                  className="pl-2 md:pl-4 basis-1/2 md:basis-1/4 lg:basis-1/6"
+                >
+                  <div className="p-2">
+                    <Card className="transition-all border border-white/10 bg-[#1d1d1d] rounded-xl">
+                      <div className="aspect-square flex items-center justify-center p-6">
+                        <div className="w-full h-full flex items-center justify-center">
+                          <img
+                            src={src}
+                            alt={`Logo ${index + 1}`}
+                            className="max-w-[75%] max-h-[75%] object-contain"
+                          />
+                        </div>
+                      </div>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+
+            </CarouselContent>
+
+            <CarouselPrevious className="hidden md:flex -left-12 bg-primary text-white hover:bg-primary-variant border-0" />
+            <CarouselNext className="hidden md:flex -right-12 bg-primary text-white hover:bg-primary-variant border-0" />
+          </Carousel>
         </div>
       </section>
 
