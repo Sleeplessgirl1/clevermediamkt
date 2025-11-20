@@ -33,18 +33,33 @@ const SocialMedia = () => {
     <div className="min-h-screen">
       <Navigation />
 
-      <section className="section-container pt-32 bg-card">
-        <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <Instagram className="w-20 h-20 mx-auto mb-6 text-primary animate-fade-in-up" />
-            <h1 className="text-5xl md:text-7xl font-gothic font-black mb-6 gradient-text animate-fade-in-up">
-              MANEJO DE REDES SOCIALES
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in">
-              Llevar tus redes sociales es mucho más que solo subir posts
-            </p>
-          </div>
+      {/* HERO CON IMAGEN DE FONDO */}
+      <section className="relative min-h-[60vh] flex items-center justify-center pt-40 pb-20">
+        <div 
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: `url(${encodeURI("/IMG_7456.jpg")})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+          }}
+        >
+          <div className="absolute inset-0 bg-black/60"></div>
+        </div>
+        
+        <div className="container mx-auto relative z-10 text-center">
+          <Instagram className="w-20 h-20 mx-auto mb-6 text-white animate-fade-in-up" />
+          <h1 className="text-5xl md:text-7xl font-gothic font-black mb-6 text-white animate-fade-in-up">
+            MANEJO DE REDES SOCIALES
+          </h1>
+          <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto animate-fade-in">
+            Llevar tus redes sociales es mucho más que solo subir posts
+          </p>
+        </div>
+      </section>
 
+      <section className="section-container bg-card">
+        <div className="container mx-auto">
           <Card className="p-8 md:p-12 max-w-4xl mx-auto mb-12 animate-fade-in">
             <p className="text-lg leading-relaxed text-foreground/90">
               Es hacer una estrategia completa con un mensaje dirigido a un público objetivo, 

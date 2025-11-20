@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import Courses from "./pages/Courses";
+import AboutUs from "./pages/AboutUs";
 import SocialMedia from "./pages/services/SocialMedia";
 import Branding from "./pages/services/Branding";
 import ContentCreation from "./pages/services/ContentCreation";
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="/servicios/contenido-ugc" element={<ContentCreation />} />
           <Route path="/servicios/fotografia" element={<Photography />} />
           <Route path="/servicios/sitios-web" element={<WebSites />} />
+          <Route path="/sobre-nosotros" element={<AboutUs />} />
           <Route path="/cursos" element={<Courses />} />
           <Route path="/contacto" element={<Contact />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

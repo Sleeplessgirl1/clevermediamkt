@@ -33,7 +33,7 @@ const Photography = () => {
     <div className="min-h-screen">
       <Navigation />
 
-      <section className="section-container pt-32 bg-card">
+      <section className="section-container pt-40 bg-card">
         <div className="container mx-auto">
           <div className="text-center mb-12">
             <Camera className="w-20 h-20 mx-auto mb-6 text-primary animate-fade-in-up" />
@@ -72,6 +72,39 @@ const Photography = () => {
                 Solicitar Información
               </Button>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* GALERÍA DE TRABAJOS */}
+      <section className="section-container bg-background">
+        <div className="container mx-auto">
+          <h2 className="text-4xl md:text-5xl font-gothic font-bold text-center mb-12 gradient-text">
+            NUESTROS TRABAJOS
+          </h2>
+          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {[
+              "/IMG_7183.jpg",
+              "/IMG_7188.jpg",
+              "/IMG_7348.jpg",
+              "/IMG_7375.jpg",
+              "/IMG_7453.jpg",
+              "/IMG_7455.jpg"
+            ].map((img, index) => (
+              <Card
+                key={index}
+                className="overflow-hidden hover-lift animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="aspect-square overflow-hidden">
+                  <img
+                    src={img}
+                    alt={`Trabajo ${index + 1}`}
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+              </Card>
+            ))}
           </div>
         </div>
       </section>

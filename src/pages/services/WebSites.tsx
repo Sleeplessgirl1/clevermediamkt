@@ -33,7 +33,7 @@ const WebSites = () => {
     <div className="min-h-screen">
       <Navigation />
 
-      <section className="section-container pt-32 bg-card">
+      <section className="section-container pt-40 bg-card">
         <div className="container mx-auto">
           <div className="text-center mb-12">
             <Globe className="w-20 h-20 mx-auto mb-6 text-secondary animate-fade-in-up" />
