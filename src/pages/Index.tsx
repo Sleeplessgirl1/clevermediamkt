@@ -238,7 +238,11 @@ const Index = () => {
             Nuestros Clientes
           </h2>
 
-          <Carousel opts={{ align: "start" }} className="w-full">
+          <Carousel 
+            opts={{ align: "start", loop: true }} 
+            plugins={[Autoplay({ delay: 2000 })]}
+            className="w-full"
+          >
             <CarouselContent className="-ml-2 md:-ml-4">
 
               {logos.map((src, index) => (

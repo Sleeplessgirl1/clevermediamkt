@@ -33,7 +33,7 @@ const Branding = () => {
     <div className="min-h-screen">
       <Navigation />
 
-      <section className="section-container pt-32 bg-card">
+      <section className="section-container pt-40 bg-card">
         <div className="container mx-auto">
           <div className="text-center mb-12">
             <Palette className="w-20 h-20 mx-auto mb-6 text-secondary animate-fade-in-up" />
@@ -45,12 +45,22 @@ const Branding = () => {
             </p>
           </div>
 
-          <Card className="p-8 md:p-12 max-w-4xl mx-auto mb-12 animate-fade-in">
-            <p className="text-lg leading-relaxed text-foreground/90">
-              Creamos logo e imagen corporativa para un negocio nuevo o para aquel que quiera refrescarse. 
-              Esto incluye todo tipo de diseño: tarjetas de presentación, papelería corporativa, y más.
-            </p>
-          </Card>
+          {/* HERO CON IMAGEN Y DESCRIPCIÓN */}
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-12 items-center">
+            <Card className="overflow-hidden animate-fade-in">
+              <img
+                src="/mockup.png"
+                alt="Branding"
+                className="w-full h-full object-cover"
+              />
+            </Card>
+            <Card className="p-8 md:p-12 animate-fade-in">
+              <p className="text-lg leading-relaxed text-foreground/90">
+                Creamos logo e imagen corporativa para un negocio nuevo o para aquel que quiera refrescarse. 
+                Esto incluye todo tipo de diseño: tarjetas de presentación, papelería corporativa, y más.
+              </p>
+            </Card>
+          </div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {services.map((service, index) => (
