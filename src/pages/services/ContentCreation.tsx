@@ -4,40 +4,32 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Video, Film, Edit, MessageSquare } from "lucide-react";
-
 const ContentCreation = () => {
-  const features = [
-    {
-      icon: <Video className="w-8 h-8" />,
-      title: "Video en Crudo",
-      description: "Contenido auténtico sin edición para máxima credibilidad"
-    },
-    {
-      icon: <Edit className="w-8 h-8" />,
-      title: "Video Editado",
-      description: "Producción profesional con edición completa"
-    },
-    {
-      icon: <MessageSquare className="w-8 h-8" />,
-      title: "Mensaje de Marca",
-      description: "Comunicamos efectivamente el mensaje de tu marca"
-    },
-    {
-      icon: <Film className="w-8 h-8" />,
-      title: "Sin Compromiso",
-      description: "No necesitas llevar tus redes con nosotros, solo el contenido"
-    }
-  ];
-
-  return (
-    <div className="min-h-screen">
+  const features = [{
+    icon: <Video className="w-8 h-8" />,
+    title: "Video en Crudo",
+    description: "Contenido auténtico sin edición para máxima credibilidad"
+  }, {
+    icon: <Edit className="w-8 h-8" />,
+    title: "Video Editado",
+    description: "Producción profesional con edición completa"
+  }, {
+    icon: <MessageSquare className="w-8 h-8" />,
+    title: "Mensaje de Marca",
+    description: "Comunicamos efectivamente el mensaje de tu marca"
+  }, {
+    icon: <Film className="w-8 h-8" />,
+    title: "Sin Compromiso",
+    description: "No necesitas llevar tus redes con nosotros, solo el contenido"
+  }];
+  return <div className="min-h-screen">
       <Navigation />
 
       <section className="section-container pt-40 bg-card">
         <div className="container mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 py-[45px]">
             <Video className="w-20 h-20 mx-auto mb-6 text-accent animate-fade-in-up" />
-            <h1 className="text-5xl md:text-7xl font-gothic font-black mb-6 gradient-text animate-fade-in-up">
+            <h1 className="text-5xl md:text-7xl font-gothic font-black mb-6 gradient-text animate-fade-in-up my-px py-px">
               CREACIÓN DE CONTENIDO UGC
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in">
@@ -54,17 +46,13 @@ const ContentCreation = () => {
           </Card>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {features.map((feature, index) => (
-              <Card
-                key={index}
-                className="p-8 hover-lift animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
+            {features.map((feature, index) => <Card key={index} className="p-8 hover-lift animate-fade-in" style={{
+            animationDelay: `${index * 0.1}s`
+          }}>
                 <div className="text-accent mb-4">{feature.icon}</div>
                 <h3 className="font-gothic font-bold text-xl mb-3">{feature.title}</h3>
                 <p className="text-muted-foreground">{feature.description}</p>
-              </Card>
-            ))}
+              </Card>)}
           </div>
 
           <div className="text-center mt-12">
@@ -78,8 +66,6 @@ const ContentCreation = () => {
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default ContentCreation;
