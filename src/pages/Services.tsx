@@ -43,7 +43,7 @@ const Services = () => {
     color: "text-accent"
   }];
   return <div className="min-h-screen">
-      <Navigation />
+      <Navigation className="bg-[#4aa9ae]" />
 
       {/* Hero */}
       <section className="section-container pt-32 bg-card">
