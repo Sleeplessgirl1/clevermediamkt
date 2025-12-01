@@ -8,7 +8,6 @@ import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
 import { toast } from "sonner";
 import { Mail, Phone, Instagram, Facebook } from "lucide-react";
-
 const Contact = () => {
   const [formData, setFormData] = useState({
     nombre: "",
@@ -19,10 +18,9 @@ const Contact = () => {
     facebook: "",
     mensaje: ""
   });
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Build WhatsApp message
     const message = `Hola! Mi nombre es ${formData.nombre} ${formData.apellido}.
     
@@ -31,29 +29,24 @@ Instagram: ${formData.instagram || 'No proporcionado'}
 Facebook: ${formData.facebook || 'No proporcionado'}
 
 Mensaje: ${formData.mensaje}`;
-
     const whatsappUrl = `https://wa.me/526141543326?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
-    
     toast.success("Redirigiendo a WhatsApp...", {
       description: "Te conectaremos con nuestro equipo"
     });
   };
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
-
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       <Navigation />
 
       <section className="section-container pt-32 bg-card">
         <div className="container mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 my-[38px]">
             <h1 className="text-5xl md:text-7xl font-gothic font-black mb-6 gradient-text animate-fade-in-up">
               HABLEMOS
             </h1>
@@ -69,88 +62,38 @@ Mensaje: ${formData.mensaje}`;
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="nombre">Nombre *</Label>
-                    <Input
-                      id="nombre"
-                      name="nombre"
-                      required
-                      value={formData.nombre}
-                      onChange={handleChange}
-                      placeholder="Tu nombre"
-                    />
+                    <Input id="nombre" name="nombre" required value={formData.nombre} onChange={handleChange} placeholder="Tu nombre" />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="apellido">Apellido *</Label>
-                    <Input
-                      id="apellido"
-                      name="apellido"
-                      required
-                      value={formData.apellido}
-                      onChange={handleChange}
-                      placeholder="Tu apellido"
-                    />
+                    <Input id="apellido" name="apellido" required value={formData.apellido} onChange={handleChange} placeholder="Tu apellido" />
                   </div>
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="email">Email *</Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="tu@email.com"
-                  />
+                  <Input id="email" name="email" type="email" required value={formData.email} onChange={handleChange} placeholder="tu@email.com" />
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="whatsapp">WhatsApp *</Label>
-                  <Input
-                    id="whatsapp"
-                    name="whatsapp"
-                    type="tel"
-                    required
-                    value={formData.whatsapp}
-                    onChange={handleChange}
-                    placeholder="+52 614 154 3326"
-                  />
+                  <Input id="whatsapp" name="whatsapp" type="tel" required value={formData.whatsapp} onChange={handleChange} placeholder="+52 614 154 3326" />
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="instagram">Instagram</Label>
-                    <Input
-                      id="instagram"
-                      name="instagram"
-                      value={formData.instagram}
-                      onChange={handleChange}
-                      placeholder="@tuusuario"
-                    />
+                    <Input id="instagram" name="instagram" value={formData.instagram} onChange={handleChange} placeholder="@tuusuario" />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="facebook">Facebook</Label>
-                    <Input
-                      id="facebook"
-                      name="facebook"
-                      value={formData.facebook}
-                      onChange={handleChange}
-                      placeholder="Tu perfil"
-                    />
+                    <Input id="facebook" name="facebook" value={formData.facebook} onChange={handleChange} placeholder="Tu perfil" />
                   </div>
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="mensaje">Mensaje *</Label>
-                  <Textarea
-                    id="mensaje"
-                    name="mensaje"
-                    required
-                    value={formData.mensaje}
-                    onChange={handleChange}
-                    placeholder="Cuéntanos sobre tu proyecto..."
-                    rows={5}
-                  />
+                  <Textarea id="mensaje" name="mensaje" required value={formData.mensaje} onChange={handleChange} placeholder="Cuéntanos sobre tu proyecto..." rows={5} />
                 </div>
 
                 <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary-variant">
@@ -160,7 +103,9 @@ Mensaje: ${formData.mensaje}`;
             </Card>
 
             {/* Contact Info */}
-            <div className="space-y-8 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <div className="space-y-8 animate-fade-in" style={{
+            animationDelay: '0.2s'
+          }}>
               <Card className="p-8">
                 <h3 className="font-gothic font-bold text-2xl mb-6">Información de Contacto</h3>
                 <div className="space-y-4">
@@ -188,12 +133,7 @@ Mensaje: ${formData.mensaje}`;
                     <Instagram className="w-5 h-5 text-primary" />
                     <div>
                       <p className="font-semibold">Instagram</p>
-                      <a
-                        href="https://instagram.com/clevermedia.mkt"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-primary"
-                      >
+                      <a href="https://instagram.com/clevermedia.mkt" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary">
                         @clevermedia.mkt
                       </a>
                     </div>
@@ -203,12 +143,7 @@ Mensaje: ${formData.mensaje}`;
                     <Facebook className="w-5 h-5 text-primary" />
                     <div>
                       <p className="font-semibold">Facebook</p>
-                      <a
-                        href="https://facebook.com/clevermedia.mkt"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-primary"
-                      >
+                      <a href="https://facebook.com/clevermedia.mkt" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary">
                         Clever Media
                       </a>
                     </div>
@@ -230,8 +165,6 @@ Mensaje: ${formData.mensaje}`;
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Contact;
