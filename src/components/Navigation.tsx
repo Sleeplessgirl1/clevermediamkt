@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { CartDrawer } from "@/components/CartDrawer";
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navItems = [{
@@ -36,15 +37,19 @@ export const Navigation = () => {
             {navItems.map(item => <Link key={item.path} to={item.path} className="text-sm font-medium text-foreground hover:text-primary transition-colors">
                 {item.name}
               </Link>)}
+            <CartDrawer />
             <Button size="sm" className="bg-primary hover:bg-primary-variant">
               PONTE CLEVER
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button className="md:hidden" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Mobile Menu Button & Cart */}
+          <div className="md:hidden flex items-center gap-2">
+            <CartDrawer />
+            <button onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
