@@ -76,7 +76,7 @@ interface CartStore {
 const SHOPIFY_STORE_PERMANENT_DOMAIN = 'lovable-project-fpta0.myshopify.com';
 const SHOPIFY_API_VERSION = '2025-07';
 const SHOPIFY_STOREFRONT_URL = `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}/api/${SHOPIFY_API_VERSION}/graphql.json`;
-const SHOPIFY_STOREFRONT_TOKEN = 'dd54f6c04bd22e7ddd0b5db9b2aaa0a3';
+const SHOPIFY_STOREFRONT_TOKEN = '7b3aa7fa9a80d0eb1134143c4e4d00ee';
 
 async function storefrontApiRequest(query: string, variables: any = {}) {
   const response = await fetch(SHOPIFY_STOREFRONT_URL, {
