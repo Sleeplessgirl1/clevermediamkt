@@ -86,10 +86,10 @@ const Photography = () => {
             {[
               "/clinica.jpg",
               "/creacion.jpg",
-              "/IMG_7348.jpg",
-              "/fotocomidaaaa.jpg",
-              "/fotocomidaa.jpg",
-              "/fotop personall.jpg"
+              "/fotografía.jpg",
+              "/gin .jpg",
+              "/foto comidaa.jpg",
+              "/foto personall.jpg"
             ].map((img, index) => (
               <Card
                 key={index}
