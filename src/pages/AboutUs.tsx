@@ -4,25 +4,31 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Camera, Palette, Briefcase, GraduationCap, Sparkles } from "lucide-react";
-
 const AboutUs = () => {
-  const services = [
-    { icon: <Sparkles className="w-6 h-6" />, name: "Diseño digital" },
-    { icon: <Palette className="w-6 h-6" />, name: "Branding" },
-    { icon: <Camera className="w-6 h-6" />, name: "Fotografía" },
-    { icon: <GraduationCap className="w-6 h-6" />, name: "Asesorías" },
-    { icon: <Briefcase className="w-6 h-6" />, name: "Creación" }
-  ];
-
-  return (
-    <div className="min-h-screen">
+  const services = [{
+    icon: <Sparkles className="w-6 h-6" />,
+    name: "Diseño digital"
+  }, {
+    icon: <Palette className="w-6 h-6" />,
+    name: "Branding"
+  }, {
+    icon: <Camera className="w-6 h-6" />,
+    name: "Fotografía"
+  }, {
+    icon: <GraduationCap className="w-6 h-6" />,
+    name: "Asesorías"
+  }, {
+    icon: <Briefcase className="w-6 h-6" />,
+    name: "Creación"
+  }];
+  return <div className="min-h-screen">
       <Navigation />
 
       <section className="section-container pt-40 bg-card">
-        <div className="container mx-auto max-w-6xl">
+        <div className="container mx-auto max-w-6xl my-[13px]">
           {/* TÍTULO PRINCIPAL */}
           <div className="text-center mb-16 animate-fade-in-up">
-            <h1 className="text-5xl md:text-7xl font-gothic font-black mb-6 gradient-text">
+            <h1 className="text-5xl md:text-7xl font-gothic font-black mb-6 gradient-text my-0">
               Clever WHO??
             </h1>
           </div>
@@ -33,11 +39,7 @@ const AboutUs = () => {
               {/* IMAGEN */}
               <div className="w-full">
                 <div className="aspect-square rounded-lg overflow-hidden">
-                  <img
-                    src="/IMG_7375.jpg"
-                    alt="Caro Mejia"
-                    className="w-full h-full object-cover"
-                  />
+                  <img src="/IMG_7375.jpg" alt="Caro Mejia" className="w-full h-full object-cover" />
                 </div>
               </div>
 
@@ -68,7 +70,9 @@ const AboutUs = () => {
 
           {/* GRID DE TARJETAS */}
           <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <Card className="p-8 hover-lift animate-fade-in" style={{ animationDelay: "0.1s" }}>
+            <Card className="p-8 hover-lift animate-fade-in" style={{
+            animationDelay: "0.1s"
+          }}>
               <div className="text-center mb-4">
                 <div className="text-6xl font-gothic font-black text-secondary mb-2">+2020</div>
               </div>
@@ -85,7 +89,9 @@ const AboutUs = () => {
               </p>
             </Card>
 
-            <Card className="p-8 hover-lift animate-fade-in" style={{ animationDelay: "0.2s" }}>
+            <Card className="p-8 hover-lift animate-fade-in" style={{
+            animationDelay: "0.2s"
+          }}>
               <div className="text-center mb-4">
                 <div className="text-6xl font-gothic font-black text-secondary mb-2">+5</div>
                 <div className="text-xl font-gothic font-bold text-muted-foreground">Personas</div>
@@ -107,16 +113,12 @@ const AboutUs = () => {
               Nuestros Servicios
             </h3>
             <div className="flex flex-wrap justify-center gap-6">
-              {services.map((service, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-3 px-6 py-3 bg-background rounded-full hover-lift"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
+              {services.map((service, index) => <div key={index} className="flex items-center gap-3 px-6 py-3 bg-background rounded-full hover-lift" style={{
+              animationDelay: `${index * 0.1}s`
+            }}>
                   <div className="text-primary">{service.icon}</div>
                   <span className="font-semibold">{service.name}</span>
-                </div>
-              ))}
+                </div>)}
             </div>
           </Card>
 
@@ -133,8 +135,6 @@ const AboutUs = () => {
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default AboutUs;
