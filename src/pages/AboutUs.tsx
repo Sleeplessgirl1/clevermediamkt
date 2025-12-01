@@ -22,7 +22,7 @@ const AboutUs = () => {
     name: "Creación"
   }];
   return <div className="min-h-screen">
-      <Navigation />
+      <Navigation className="bg-[#4aa9ae]" />
 
       <section className="section-container pt-40 bg-card">
         <div className="container mx-auto max-w-6xl my-[13px]">
@@ -39,11 +39,7 @@ const AboutUs = () => {
               {/* IMAGEN */}
               <div className="w-full">
                 <div className="aspect-square rounded-lg overflow-hidden">
-<img 
-  src="/IMG_7183.jpg" 
-  alt="Caro Mejia" 
-  className="w-full h-full object-cover object-top" 
-/>                </div>
+                <img src="/IMG_7183.jpg" alt="Caro Mejia" className="w-full h-full object-cover object-top" />                </div>
               </div>
 
               {/* CONTENIDO */}
