@@ -84,12 +84,12 @@ const Photography = () => {
           </h2>
           <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {[
-              "/IMG_7183.jpg",
-              "/IMG_7188.jpg",
+              "/clinica.jpg",
+              "/creacion.jpg",
               "/IMG_7348.jpg",
-              "/IMG_7375.jpg",
-              "/IMG_7453.jpg",
-              "/IMG_7455.jpg"
+              "/fotocomidaaaa.jpg",
+              "/fotocomidaa.jpg",
+              "/fotop personall.jpg"
             ].map((img, index) => (
               <Card
                 key={index}
