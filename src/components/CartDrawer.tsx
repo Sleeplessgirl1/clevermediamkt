@@ -9,7 +9,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { ShoppingCart, Minus, Plus, Trash2, ExternalLink, Loader2 } from "lucide-react";
+import { ShoppingCart, Minus, Plus, Trash2, CreditCard, Loader2 } from "lucide-react";
 import { useCartStore } from "@/stores/cartStore";
 import { toast } from "sonner";
 
@@ -143,6 +143,14 @@ export const CartDrawer = () => {
                   </span>
                 </div>
                 
+                {/* Payment methods info */}
+                <div className="flex items-center justify-center gap-2 py-2 px-3 bg-muted/50 rounded-lg">
+                  <CreditCard className="w-4 h-4 text-muted-foreground" />
+                  <span className="text-sm text-muted-foreground">
+                    Pago seguro con tarjeta de débito o crédito
+                  </span>
+                </div>
+                
                 <Button 
                   onClick={handleCheckout}
                   className="w-full bg-primary hover:bg-primary-variant" 
@@ -156,11 +164,15 @@ export const CartDrawer = () => {
                     </>
                   ) : (
                     <>
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Ir a Pagar
+                      <CreditCard className="w-4 h-4 mr-2" />
+                      Pagar con Tarjeta
                     </>
                   )}
                 </Button>
+                
+                <p className="text-xs text-center text-muted-foreground">
+                  Serás redirigido a Shopify para completar tu pago de forma segura
+                </p>
               </div>
             </>
           )}
