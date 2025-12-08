@@ -147,7 +147,7 @@ export const CartDrawer = () => {
                 <div className="flex items-center justify-center gap-2 py-2 px-3 bg-muted/50 rounded-lg">
                   <CreditCard className="w-4 h-4 text-muted-foreground" />
                   <span className="text-sm text-muted-foreground">
-                    Pago seguro con tarjeta de débito o crédito
+                    Pagos con Shopify · Tarjetas de débito y crédito
                   </span>
                 </div>
                 
