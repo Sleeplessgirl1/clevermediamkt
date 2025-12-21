@@ -32,9 +32,9 @@ export const CartDrawer = () => {
       await createCheckout();
       const url = useCartStore.getState().checkoutUrl;
       if (url) {
-        window.open(url, '_blank');
-        setIsOpen(false);
-      }
+  window.location.href = url;
+  setIsOpen(false);
+  }
     } catch (error) {
       console.error('Checkout failed:', error);
       toast.error("Error al crear el checkout", {
