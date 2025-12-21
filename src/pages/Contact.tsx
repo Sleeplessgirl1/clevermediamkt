@@ -44,10 +44,10 @@ Mensaje: ${formData.mensaje}`;
   return <div className="min-h-screen">
       <Navigation />
 
-      <section className="section-container pt-32 bg-card">
+      <section className="section-container pt-32 bg-card py-[130px]">
         <div className="container mx-auto">
           <div className="text-center mb-16 my-[38px]">
-            <h1 className="text-5xl md:text-7xl font-gothic font-black mb-6 gradient-text animate-fade-in-up">
+            <h1 className="md:text-7xl font-gothic font-black mb-6 gradient-text animate-fade-in-up text-4xl">
               HABLEMOS
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground animate-fade-in">
@@ -57,8 +57,8 @@ Mensaje: ${formData.mensaje}`;
 
           <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Contact Form */}
-            <Card className="p-8 animate-fade-in">
-              <form onSubmit={handleSubmit} className="space-y-6">
+            <Card className="p-8 animate-fade-in px-0 mx-0 py-[6px]">
+              <form onSubmit={handleSubmit} className="space-y-6 px-[21px]">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="nombre">Nombre *</Label>
@@ -106,7 +106,7 @@ Mensaje: ${formData.mensaje}`;
             <div className="space-y-8 animate-fade-in" style={{
             animationDelay: '0.2s'
           }}>
-              <Card className="p-8">
+              <Card className="p-8 px-[24px]">
                 <h3 className="font-gothic font-bold text-2xl mb-6">Información de Contacto</h3>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
