@@ -29,7 +29,7 @@ const ContentCreation = () => {
         <div className="container mx-auto">
           <div className="text-center mb-12 py-[45px]">
             <Video className="w-20 h-20 mx-auto mb-6 text-accent animate-fade-in-up" />
-            <h1 className="text-5xl md:text-7xl font-gothic font-black mb-6 gradient-text animate-fade-in-up my-px py-px">
+            <h1 className="md:text-7xl font-gothic font-black mb-6 gradient-text animate-fade-in-up py-px my-[14px] text-4xl">
               CREACIÓN DE CONTENIDO UGC
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in">
