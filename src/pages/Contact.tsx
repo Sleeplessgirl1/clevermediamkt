@@ -45,7 +45,7 @@ Mensaje: ${formData.mensaje}`;
       <Navigation />
 
       <section className="section-container pt-32 bg-card py-[130px]">
-        <div className="container mx-auto">
+        <div className="container mx-auto border-0">
           <div className="text-center mb-16 my-[38px]">
             <h1 className="md:text-7xl font-gothic font-black mb-6 gradient-text animate-fade-in-up text-4xl">
               HABLEMOS
