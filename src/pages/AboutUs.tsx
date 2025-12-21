@@ -28,7 +28,7 @@ const AboutUs = () => {
         <div className="container mx-auto max-w-6xl my-[13px]">
           {/* TÍTULO PRINCIPAL */}
           <div className="text-center mb-16 animate-fade-in-up">
-            <h1 className="text-5xl md:text-7xl font-gothic font-black mb-6 gradient-text my-0">
+            <h1 className="text-5xl md:text-7xl font-gothic font-black mb-6 gradient-text py-0 my-[18px]">
               Clever WHO??
             </h1>
           </div>
