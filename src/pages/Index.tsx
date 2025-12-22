@@ -97,9 +97,7 @@ const Index = () => {
           />
           </div>
 
-          <p className="text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto mb-12 animate-fade-in leading-relaxed">
-            Con 7 años en el mercado, Clever Media ha ayudado a muchos emprendedores...
-          </p>
+          <p className="text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto mb-12 animate-fade-in leading-relaxed">Con 7 años en el mercado, Clever Media ha ayudado a muchos emprendedores...</p>
 
           <div className="flex flex-wrap justify-center gap-4 mb-12 animate-slide-in-left">
             {services.map((service, index) => <Link key={index} to={service.path} className="px-5 py-3 bg-white/95 backdrop-blur-sm border-2 border-white/50 rounded-full text-sm font-semibold text-accent hover:bg-primary hover:text-white hover:border-primary transition-all hover-lift hover-glow" style={{
