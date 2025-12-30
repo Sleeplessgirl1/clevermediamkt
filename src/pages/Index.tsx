@@ -70,7 +70,7 @@ const Index = () => {
   return <div className="min-h-screen bg-background">
       {/* Navegación con posición absoluta para que flote sobre el hero */}
       <div className="relative z-20">
-        <Navigation className="bg-[#4baaaf]" />
+        <Navigation />
       </div>
 
       {/* HERO FULLSCREEN */}
