@@ -39,10 +39,10 @@ const AboutUs = () => {
               {/* IMAGENES */}
               <div className="w-full flex flex-col gap-4">
                 <div className="aspect-[4/3] rounded-lg overflow-hidden">
-                  <img alt="Caro Mejia" className="w-full h-full object-cover object-top" src="/lovable-uploads/a0498a51-ee73-4dd8-93f9-c29c319d7797.jpg" />
+                  <img alt="Caro Mejia" className="w-full h-full object-cover object-top" src="/lovable-uploads/91c4eb2f-8960-4425-af05-4ac031ea900d.jpg" />
                 </div>
                 <div className="aspect-[4/3] rounded-lg overflow-hidden">
-                  <img alt="Caro Mejia con tripié" className="w-full h-full object-cover object-center" src="/IMG_7455.jpg" />
+                  <img alt="Caro Mejia con tripié" className="w-full h-full object-cover object-center" src="/lovable-uploads/6ac81526-6c9d-4201-8d4f-4a070d1e748a.jpg" />
                 </div>
               </div>
 
