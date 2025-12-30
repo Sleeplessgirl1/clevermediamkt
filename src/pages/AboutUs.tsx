@@ -22,7 +22,7 @@ const AboutUs = () => {
     name: "Creación"
   }];
   return <div className="min-h-screen">
-      <Navigation />
+      <Navigation className="bg-[#4baaaf]" />
 
       <section className="section-container pt-40 bg-card">
         <div className="container mx-auto max-w-6xl my-[13px]">
