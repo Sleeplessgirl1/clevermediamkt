@@ -39,7 +39,7 @@ const AboutUs = () => {
               {/* IMAGEN */}
               <div className="w-full">
                 <div className="aspect-square rounded-lg overflow-hidden">
-                <img src="/IMG_7183.jpg" alt="Caro Mejia" className="w-full h-full object-cover object-top" />                </div>
+                <img alt="Caro Mejia" className="w-full h-full object-cover object-top" src="/lovable-uploads/d8b23542-fe1e-4255-af7f-33eabd9fbea0.jpg" />                </div>
               </div>
 
               {/* CONTENIDO */}
