@@ -36,10 +36,14 @@ const AboutUs = () => {
           {/* TARJETA DE PRESENTACIÓN - CARO */}
           <Card className="p-8 md:p-12 mb-12 animate-fade-in hover-lift">
             <div className="grid md:grid-cols-[300px_1fr] gap-8 items-start">
-              {/* IMAGEN */}
-              <div className="w-full">
-                <div className="aspect-square rounded-lg overflow-hidden">
-                <img alt="Caro Mejia" className="w-full h-full object-cover object-top" src="/lovable-uploads/a0498a51-ee73-4dd8-93f9-c29c319d7797.jpg" />                </div>
+              {/* IMAGENES */}
+              <div className="w-full flex flex-col gap-4">
+                <div className="aspect-[4/3] rounded-lg overflow-hidden">
+                  <img alt="Caro Mejia" className="w-full h-full object-cover object-top" src="/lovable-uploads/a0498a51-ee73-4dd8-93f9-c29c319d7797.jpg" />
+                </div>
+                <div className="aspect-[4/3] rounded-lg overflow-hidden">
+                  <img alt="Caro Mejia con tripié" className="w-full h-full object-cover object-center" src="/IMG_7455.jpg" />
+                </div>
               </div>
 
               {/* CONTENIDO */}
