@@ -7,8 +7,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
 import { toast } from "sonner";
-import { Mail, Phone, Instagram, Facebook, Loader2 } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
+import { Mail, Phone, Instagram, Facebook } from "lucide-react";
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     nombre: "",
@@ -19,41 +19,24 @@ const Contact = () => {
     facebook: "",
     mensaje: ""
   });
-  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsLoading(true);
-
-    try {
-      const { data, error } = await supabase.functions.invoke('send-contact-email', {
-        body: formData
-      });
-
-      if (error) throw error;
-
-      toast.success("¡Mensaje enviado!", {
-        description: "Nos pondremos en contacto contigo pronto"
-      });
-
-      // Reset form
-      setFormData({
-        nombre: "",
-        apellido: "",
-        email: "",
-        whatsapp: "",
-        instagram: "",
-        facebook: "",
-        mensaje: ""
-      });
-    } catch (error: any) {
-      console.error("Error sending email:", error);
-      toast.error("Error al enviar el mensaje", {
-        description: "Por favor intenta de nuevo más tarde"
-      });
-    } finally {
-      setIsLoading(false);
-    }
+    
+    // Construir mensaje de WhatsApp
+    const mensaje = `Hola! Soy ${formData.nombre} ${formData.apellido}.%0A%0A` +
+      `Email: ${formData.email}%0A` +
+      `WhatsApp: ${formData.whatsapp}%0A` +
+      `Instagram: ${formData.instagram || 'No proporcionado'}%0A` +
+      `Facebook: ${formData.facebook || 'No proporcionado'}%0A%0A` +
+      `Mensaje: ${formData.mensaje}`;
+    
+    // Abrir WhatsApp con el mensaje
+    window.open(`https://wa.me/526141543326?text=${mensaje}`, '_blank');
+    
+    toast.success("¡Redirigiendo a WhatsApp!", {
+      description: "Continúa la conversación en WhatsApp"
+    });
   };
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -116,15 +99,8 @@ const Contact = () => {
                   <Textarea id="mensaje" name="mensaje" required value={formData.mensaje} onChange={handleChange} placeholder="Cuéntanos sobre tu proyecto..." rows={5} />
                 </div>
 
-                <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary-variant" disabled={isLoading}>
-                  {isLoading ? (
-                    <>
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                      Enviando...
-                    </>
-                  ) : (
-                    "Enviar Mensaje"
-                  )}
+                <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary-variant">
+                  Enviar por WhatsApp
                 </Button>
               </form>
             </Card>
