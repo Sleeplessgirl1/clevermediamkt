@@ -21,9 +21,9 @@ export const Navigation = () => {
     name: "Contacto",
     path: "/contacto"
   }];
-  return <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
-      <div className="container mx-auto px-4 bg-[#4aa9ae]">
-        <div className="flex items-center justify-between h-20 shadow bg-[#4aa9ae]">
+  return <nav className="fixed top-0 left-0 right-0 z-50 bg-[#4aa9ae] backdrop-blur-lg border-b border-border">
+      <div className="mx-auto max-w-[1200px] px-4">
+        <div className="flex items-center justify-between h-20">
           
           {/* Logo */}
           <Link to="/" className="flex items-center">
